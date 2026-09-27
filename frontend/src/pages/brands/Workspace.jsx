@@ -5,7 +5,7 @@ import LoadingSkeleton from "../../components/ui/LoadingSkeleton";
 import toast from "react-hot-toast";
 import { getBrandById } from "../../services/brandService";
 
-import { Calendar, FileText, Link2, BarChart3 } from "lucide-react";
+import { Calendar, FileText, Link2, BarChart3, Palette } from "lucide-react";
 
 const Workspace = () => {
   const { brandId } = useParams();
@@ -59,6 +59,13 @@ const Workspace = () => {
       buttonText: "Open Posts",
     },
     {
+      title: "Make Your Design",
+      description: "Canva, Adobe, Figma & In-App Studio.",
+      icon: Palette,
+      path: `/make-your-design`,
+      buttonText: "Open Studio",
+    },
+    {
       title: "Backlinks",
       description: "Track backlink building activities.",
       icon: Link2,
@@ -85,7 +92,7 @@ const Workspace = () => {
 
       {/* WORKSPACE MODULES */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {modules.map((module, index) => {
           const Icon = module.icon;
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import GlassCard from "../../components/ui/GlassCard";
 import API from "../../services/api";
 import LoadingSkeleton from "../../components/ui/LoadingSkeleton";
@@ -11,7 +12,16 @@ import {
   FaLink,
   FaArrowUp,
   FaClock,
+  FaArrowRight,
 } from "react-icons/fa";
+import { FaPalette, FaFigma } from "react-icons/fa6";
+import { SiCanva } from "react-icons/si";
+
+const AdobeIcon = ({ size = 16, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M14.58 2H24v20h-5.26l-4.16-10.37h.01V2zm-5.16 0H0v20h5.26l4.16-10.37V2zm2.58 8.16L16.27 22h-3.41l-1.32-3.41h-2.1L8.12 22H4.71l7.29-11.84z" />
+  </svg>
+);
 
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 
@@ -117,6 +127,56 @@ const Home = () => {
           icon={<FaLink />}
         />
       </div>
+
+      {/* 🎨 MAKE YOUR DESIGN SHOWCASE BANNER */}
+      <GlassCard className="relative overflow-hidden p-6 bg-gradient-to-r from-indigo-900 via-purple-900 to-blue-900 text-white border border-indigo-500/30">
+        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+          <div className="space-y-2 max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-cyan-300 text-xs font-semibold uppercase tracking-wider">
+              <FaPalette className="text-cyan-400" />
+              Creative Studio Hub
+            </div>
+            <h2 className="text-2xl font-bold">Need Visuals for Your Next Campaign?</h2>
+            <p className="text-sm text-indigo-100/90 leading-relaxed">
+              Design high-converting posts directly on <strong>Canva</strong>, <strong>Adobe Express</strong>, <strong>Figma</strong>, or generate social banners inside our in-app canvas studio.
+            </p>
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="https://www.canva.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs bg-white/10 hover:bg-white/20 text-cyan-200 px-3 py-1.5 rounded-lg border border-white/15 transition flex items-center gap-1.5"
+              >
+                <SiCanva size={14} /> Open Canva
+              </a>
+              <a
+                href="https://www.adobe.com/express/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs bg-white/10 hover:bg-white/20 text-red-300 px-3 py-1.5 rounded-lg border border-white/15 transition flex items-center gap-1.5"
+              >
+                <AdobeIcon size={14} /> Open Adobe Express
+              </a>
+              <a
+                href="https://www.figma.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs bg-white/10 hover:bg-white/20 text-pink-300 px-3 py-1.5 rounded-lg border border-white/15 transition flex items-center gap-1.5"
+              >
+                <FaFigma size={14} /> Open Figma
+              </a>
+            </div>
+          </div>
+
+          <Link
+            to="/make-your-design"
+            className="self-start lg:self-center px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-bold text-sm shadow-xl transition transform hover:scale-105 active:scale-95 flex items-center gap-2"
+          >
+            Launch Make Your Design <FaArrowRight size={14} />
+          </Link>
+        </div>
+      </GlassCard>
 
       {/* ALERT + UPCOMING */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

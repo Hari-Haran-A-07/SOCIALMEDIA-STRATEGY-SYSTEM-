@@ -62,9 +62,18 @@ const BreadcrumbNav = () => {
           label = "Details";
         }
 
-        /* Capitalize normal routes */
+        /* Make Your Design */
+        if (value === "make-your-design") {
+          label = "Make Your Design";
+          path = "/make-your-design";
+        }
 
-        if (!isMongoId(value) && value !== brandId && value !== "brands") {
+        if (value === "design") {
+          label = "Design Studio";
+        }
+
+        /* Capitalize normal routes */
+        if (!isMongoId(value) && value !== brandId && value !== "brands" && value !== "make-your-design" && value !== "design") {
           label = value.charAt(0).toUpperCase() + value.slice(1);
         }
 

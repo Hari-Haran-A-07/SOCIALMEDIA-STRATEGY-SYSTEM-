@@ -20,6 +20,7 @@ import Backlinks from "../pages/backlinks/Backlinks";
 import BacklinkDetails from "../pages/backlinks/BacklinkDetails";
 
 import Analytics from "../pages/analytics/Analytics";
+import MakeYourDesign from "../pages/design/MakeYourDesign";
 
 /* WRAPPER FOR PROTECTED + LAYOUT */
 
@@ -63,6 +64,11 @@ const AppRoutes = () => {
         />
 
         <Route path="/brand/:brandId/analytics" element={<Analytics />} />
+        <Route path="/brand/:brandId/design" element={<MakeYourDesign />} />
+
+        {/* MAKE YOUR DESIGN STUDIO */}
+        <Route path="/make-your-design" element={<MakeYourDesign />} />
+        <Route path="/design-studio" element={<Navigate to="/make-your-design" />} />
       </Route>
 
       {/* FALLBACK */}

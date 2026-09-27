@@ -1,7 +1,16 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { updatePost } from "../../services/postService";
 import GlassCard from "../ui/GlassCard";
+import { FaPalette } from "react-icons/fa6";
+import { SiCanva } from "react-icons/si";
+
+const AdobeIcon = ({ size = 12, className = "" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M14.58 2H24v20h-5.26l-4.16-10.37h.01V2zm-5.16 0H0v20h5.26l4.16-10.37V2zm2.58 8.16L16.27 22h-3.41l-1.32-3.41h-2.1L8.12 22H4.71l7.29-11.84z" />
+  </svg>
+);
 
 const PostForm = ({ brandId, onCreate, editData, onClose }) => {
   const [form, setForm] = useState({
@@ -244,8 +253,41 @@ const PostForm = ({ brandId, onCreate, editData, onClose }) => {
 
               {/* MEDIA */}
               {!editData && (
-                <div>
-                  <label className="form-label">Upload Media</label>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <label className="form-label mb-0">Upload Media</label>
+                    <Link
+                      to="/make-your-design"
+                      target="_blank"
+                      className="text-[11px] text-indigo-600 hover:text-indigo-800 font-semibold flex items-center gap-1 hover:underline"
+                    >
+                      <FaPalette size={11} /> Design Studio
+                    </Link>
+                  </div>
+
+                  {/* QUICK DESIGN LAUNCHER BUTTONS */}
+                  <div className="p-2.5 rounded-xl bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 border border-blue-100 flex items-center justify-between text-xs">
+                    <span className="text-gray-600 text-[11px]">Need graphic assets?</span>
+                    <div className="flex gap-1.5">
+                      <a
+                        href="https://www.canva.com/create/instagram-posts/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-1 rounded bg-cyan-600 hover:bg-cyan-700 text-white text-[11px] font-medium flex items-center gap-1 shadow-sm"
+                      >
+                        <SiCanva size={10} /> Canva
+                      </a>
+                      <a
+                        href="https://www.adobe.com/express/create/social-media-graphic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-2 py-1 rounded bg-red-600 hover:bg-red-700 text-white text-[11px] font-medium flex items-center gap-1 shadow-sm"
+                      >
+                        <AdobeIcon size={10} /> Adobe
+                      </a>
+                    </div>
+                  </div>
+
                   <input
                     type="file"
                     multiple
